@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/questions",
-      "destination": "/api/json-server"
+      "source": "/data/questions.json",
+      "destination": "/api/json-server.js"
     }
   ]
 }

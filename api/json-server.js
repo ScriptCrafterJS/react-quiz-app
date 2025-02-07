@@ -1,12 +1,9 @@
-import { createServer } from "json-server";
-import path from "path";
+const jsonServer = require("json-server");
+const server = jsonServer.create();
+const router = jsonServer.router("/data/questions.json");
+const middlewares = jsonServer.defaults();
 
-const server = createServer();
-const router = server.router(path.join(__dirname, "../data/questions.json"));
+server.use(middlewares);
+server.use(router);
 
-const handler = (req, res) => {
-  server.use(router);
-  server.handle(req, res);
-};
-
-export default handler;
+module.exports = server;
