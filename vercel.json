@@ -1,3 +1,8 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "api/index.js" }]
+  "rewrites": [
+    {
+      "source": "/questions",
+      "destination": "/api/json-server"
+    }
+  ]
 }

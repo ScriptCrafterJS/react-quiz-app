@@ -36,7 +36,6 @@ function reducer(state, action) {
       };
     case "newAnswer":
       const question = state.questions[state.index];
-      console.log(state);
       return {
         ...state,
         answer: action.payload,
@@ -99,7 +98,7 @@ function QuizProvider({ children }) {
   useEffect(
     function () {
       // the server is running using json-server npm package
-      fetch("http://localhost:3001/questions")
+      fetch("https://react-quiz-app-nu-one.vercel.app/questions")
         .then((res) => res.json())
         .then((data) => dispatch({ type: "dataReceived", payload: data }))
         .catch(() => dispatch({ type: "dataFailed" }));

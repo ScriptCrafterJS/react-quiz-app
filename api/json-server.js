@@ -1,12 +1,12 @@
-const jsonServer = require("json-server");
-const server = jsonServer.create();
-const router = jsonServer.router("./data/questions.json"); // Your JSON data file
-const middlewares = jsonServer.defaults();
+import { createServer } from "json-server";
+import path from "path";
 
-server.use(middlewares);
-server.use(router);
+const server = createServer();
+const router = server.router(path.join(__dirname, "../data/questions.json"));
 
-// Export handler to Vercel
-module.exports = (req, res) => {
+const handler = (req, res) => {
+  server.use(router);
   server.handle(req, res);
 };
+
+export default handler;
